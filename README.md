@@ -1,5 +1,5 @@
 Yet Another JavaScript Book
----------------------------
+===========================
 
 Everyone and their significant other is writing or has written a JavaScript book. Here's mine. This is more of a place for me to write about what I think at this point in time about JS and programming in general but hopefully it can help others understand it all from a different perspective. 
 
