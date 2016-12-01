@@ -7,6 +7,6 @@ Everyone and their significant other is writing or has written a JavaScript book
 ###Table of Contents:
 
 * [Chapter 1](./chapters/Chapter_1.md)
-  - [Meet our Worker](./Chapter_1.md#Meet our Worker)
+  - Meet our Worker
   - Boxes and Instructions
   - Introduction to the Console
