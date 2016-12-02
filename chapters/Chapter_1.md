@@ -214,6 +214,7 @@ Our worker follows the same thing as it did with `2 + 2`, except this time inste
 
   - What does our worker tell us?
   - What happens if you use `let` instead of `const`? How about `var`?
+  
 * Why do you think when we do addition ( `2 + 2`), we get the value underneath ( `4` ) but when we `assign` a value ( `const name = 'Timi'` ), we get `undefined` instead of `"Timi"`? What is our worker telling us when he says those things?
 
 [Image_1]: ../assets/img/chpt_1_1.png
