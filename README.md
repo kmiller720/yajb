@@ -16,3 +16,7 @@ These are little tidbits of information that might be helpful or might be confus
   - Meet our Worker
   - Boxes and Instructions
   - Introduction to the Console
+  
+* [Chapter 2](./chapters/Chapter_2.md)
+  - What's in a Name?
+  - Is it Equal or Similar?
