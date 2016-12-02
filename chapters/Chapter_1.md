@@ -220,7 +220,7 @@ Our worker follows the same thing as it did with `2 + 2`, except this time inste
 
 ##Before Moving On:
 
-Before we get into `types` and `instructions`, we really need to have an understanding of `assigning` values. Be sure that you are comfortable with creating boxes and using them to create new boxes ( `cosnt four = two + two` ). Come up with your own analogy of what the computer is doing and how. I will continue using the `boxes and instructions` metaphor but if that doesn't make sense to you, work on creating your own mental idea of what is happening behind the scenes. 
+Before we get into `types` and `instructions`, we really need to have an understanding of `assigning` values. Be sure that you are comfortable with creating boxes and using them to create new boxes ( `const four = two + two` ). Come up with your own analogy of what the computer is doing and how. I will continue using the `boxes and instructions` metaphor but if that doesn't make sense to you, work on creating your own mental idea of what is happening behind the scenes. 
 
 If you are comfortable with all of this and have done your homework, check out [Chapter 2](./Chapter_2.md) and get ready for the serious programming to start!
 
