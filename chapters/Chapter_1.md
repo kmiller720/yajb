@@ -30,7 +30,7 @@ The way that I like to think about how we talk to our worker is through boxes of
 
 ##Introduction to the Console
 
-Open up your browser ( *I'll be using Chrome but very browser has a console.* ) and right-click any window. It should open a menu that has an `inspect` or `Inspect Console` option. That will open up a section that will have a tab called `Console`. Click that and you should have something like the following on your screen:
+Open up your browser ( *I'll be using Chrome but every browser has a console.* ) and right-click any window. It should open a menu that has an `inspect` or `Inspect Console` option. That will open up a section that will have a tab called `Console`. Click that and you should have something like the following on your screen:
 
 ![Console in the Browser][Image_1]
 
