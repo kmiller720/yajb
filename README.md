@@ -1,7 +1,7 @@
 Yet Another JavaScript Book
 ===========================
 
-Everyone and their significant other is writing or has written a JavaScript book. Here's mine. This is more of a place for me to write about what I think at this point in time about JS and programming in general but hopefully it can help others understand it all from a different perspective. 
+Everyone and their significant other is writing or has written a JavaScript book. Here's mine. This is a place for me to write about what I think at this point in time about JS and programming in general but hopefully it can help others understand it all from a different perspective. More than anything, however, this is a place for me to ask the smart people "where am I wrong?" but disguised as a tutorial. 
 
 ###Markup Convetions:
 
