@@ -9,7 +9,7 @@ Chapter 2: It Begins
 
 ##What's in a Name
 
-If you remember from Chapter 1, I said that our worker only understands the reserved keywords and operators. That's not completely true. As we saw, the worker also understands what the number `2` is along with what a string is ( *as long as we put '', "", or `` around it!* ). That is because JavaScript has a few different `types` of data that is understands natively. There are 7 different `types` of data that JavaScript understands, grouped together under *primitives* and *object*. 
+If you remember from Chapter 1, I said that our worker only understands the reserved keywords and operators. That's not completely true. As we saw, the worker also understands what the number `2` is along with what a string is ( *as long as we put '', "", or `` around it!* ). That is because JavaScript has a few different `types` of data that it understands natively. There are 7 different `types` of data that JavaScript understands, grouped together under *primitives* and *object*. 
 
 ###Primitives
 
@@ -31,6 +31,8 @@ Just like we saw with `numbers` being able to have certain operations performed 
 Primitives are `immutable` data: they can never be mutated. This idea of `immutability` will become a cornerstone as we reach functional programming ideas but for now we can just think of a primitive as a value that can never be different than what it is. This is not to be confused to a box always being a value. We are saying that `2` will always and forever be `2`
 >
 We can also think of primitives as values that the computer understands while objects are user-created values that boil down into primitives.
+>
+**Primitives are boxes that our worker controls and that we can only access**
 
 
 _**Boolean**_
@@ -95,7 +97,7 @@ Now if we ever want to get the name of this user, we can tell our worker to get 
 
 ```
 const user = {
-  name: 'Timi'.
+  name: 'Timi',
   age: 28
 }
 ```
@@ -171,17 +173,19 @@ list[0] = 'Timi' // ['Timi']
 
 The `indexes` start at `0`.
 
+**Go more in-depth here about arrays**
+
 ##Is it Equal or Similar
 
 We have seen that to `assign` a value to a box (`variable`), we use the equal sign, `=`. This is our way of telling our worker to do the `assignment operation`. But what if we wanted to ask our worker if something is equivalent to something else? How can we check `equality` if the equal sign is used for assignment instead? 
 
-Just like before, our worker understands certain symbols in a certain order to `mean` something. He knows that `=` means `assign the value on the right side to the box on the left`. He knows that `2 + 2` means `add the value 2 to the value 2` (4) and that `'hello ' + 'world!'` means `add the value 'world!' to the value 'hello '` ('hello world!'). He also knows what `==` and `===` means. Let's see what he thinks those symbols together mean.
+Just like before, our worker understands certain symbols in a certain order to `mean` something. He knows that `=` means `assign the value on the right side to the box on the left`. He knows that `2 + 2` means `add the value 2 to the value 2` (4) and that `'hello ' + 'world!'` means `add the value 'world!' to the value 'hello '` ('hello world!'). He also knows what `==` and `===` mean. Let's see what he thinks those symbols together mean.
 
 ###Strictly Equals
 
 When our worker encounters `===`, he assumes we are telling him *Tell me if the value on the left is absolutely equal to the value on the right*. In practice, let's see what that looks like:
 
-[Link To See](https://jsfiddle.net/aqg4hzbc/)
+[Link To See](https://jsfiddle.net/aqg4hzbc/2/)
 ```
 2 === 2
 // true
@@ -237,6 +241,48 @@ otherUserBox === user
 // ?
 ```
 
+Does this expression equal `true` or `false`? Let's walk through what we are telling our worker line by line:
 
+1. *I have a custom data type I want you to create a box for*
+2. *I want you to point this other box to the previous box*
+3. *Are these two values both pointing at the same box?*
+
+> Coder Break:
+>
+If you are coming to JavaScript from another language, you might have this idea of `reference` vs `value` and `pointers`. While I say that our worker is *pointing* at something I am not meaning in the literal CS way of a `pointer`. I am meaning that an object is just a reference to some values and that we can pass that reference around. 
+
+To fully understand why `otherUserBox === user`, we need to have some sort of idea of what our worker is doing when we create non-primitive boxes. 
+
+Like I said before, any value that is not a `primitive` is an `object`. This is because all an `object` really does is offer you an interface to get to `primitive` values. For instance:
+
+```
+const user = {name: 'Timi'}
+```
+
+Here, the primitive value is `'Timi'`. Our computer understands that `'Timi'` is a string, therefore it has some idea of what that value equals. What the `object` does is gives us a way to reference this `primitive` value later. Our worker has created a place in its warehouse and labeled it `user`, which has a smaller box called `name`. 
+
+When we pass around the box `user`, our worker is not passing around the boxes inside of it ( *the actual value of the box* ) but instead just passes us the `reference` to the box `user`. This is because our worker doesn't understand the values inside of the box because they are not `primitive`. `name` is an `identifier`, not a `primitive`. 
+
+Let's take a look at this concept from a different perspective. 
+
+Everyone has a street address. This is a unique identifier, a unique set of characters in a specific order, that tell the postman how to deliver a letter to the correct house. The postman does not know what is inside of the house nor cares. All he knows is that when someone puts *1234 Main St*, they mean this specific mailbox. 
+
+Now imagine that the city changes the address from *1234 Main St* to *4321 Washington Ave* and we want to get our mail copied from *1234 Main St* to this new address as well. You want to change the `reference` the postman has for where you live. You have not changed, just what is written on the letter.
+
+You go to the post office and say *I can now also be reached at 4321 Washington Ave* and from that point until you tell them otherwise, they will assume that any time a letter goes to *1234 Main St* or to *4321 Washington Ave*, it is a letter for you and finds where you are and delivers your Amazon packages. 
+
+When we create an `object`, we are telling our postman the address to some thing. We are giving the worker a `reference` to a house. When we change what we call that, when we change the address of the `reference`, we do not change what it is pointing at ( *you do not change when you move houses* ) but rather how we reference it. 
+ 
+The next question is: what happens when the values that you are referencing changes? If you are the owner of both *1234 Main St* and *4231 Washington Ave* and you eat a sandwich at *1234 Main St*, did the owner of *4321 Washington Ave* also eat a sandwich? If both *1234 Main St* and *4321 Washington Ave* both point at the same house, and you change the bathroom color of *4321 Washington Ave*, did the color of the bathroom inside of *1234 Main St* also change?
+
+> Coder Break:
+>
+This is not that big of a thing to know right now but in the next chapter or two we will see how vitally important this concept is. Take some time now and find the edges. This will come back and bite you in the butt if you don't. 
 
 ##Homework
+
+
+
+
+
+
