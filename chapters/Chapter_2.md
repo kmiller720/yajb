@@ -173,8 +173,68 @@ The `indexes` start at `0`.
 
 ##Is it Equal or Similar
 
-We have seen that to `assign` a value to a box (`variable`), we use the equal sign, `=`. This is our way of telling our worker to do the `assignment operation`. But what if we wanted to ask our worker if something is equivalent to something else? How can we check `equality` if the equal sign is used for assignment instead?
+We have seen that to `assign` a value to a box (`variable`), we use the equal sign, `=`. This is our way of telling our worker to do the `assignment operation`. But what if we wanted to ask our worker if something is equivalent to something else? How can we check `equality` if the equal sign is used for assignment instead? 
 
+Just like before, our worker understands certain symbols in a certain order to `mean` something. He knows that `=` means `assign the value on the right side to the box on the left`. He knows that `2 + 2` means `add the value 2 to the value 2` (4) and that `'hello ' + 'world!'` means `add the value 'world!' to the value 'hello '` ('hello world!'). He also knows what `==` and `===` means. Let's see what he thinks those symbols together mean.
 
+###Strictly Equals
+
+When our worker encounters `===`, he assumes we are telling him *Tell me if the value on the left is absolutely equal to the value on the right*. In practice, let's see what that looks like:
+
+[Link To See](https://jsfiddle.net/aqg4hzbc/)
+```
+2 === 2
+// true
+'Timi' === 'Timi'
+// true
+'Timi' === 'timi'
+// false 
+true === true
+// true
+true === false
+// false
+null === null
+// true
+undefined === undefined
+// true
+undefined === null
+// false
+```
+
+We notice that for the `primitive` values, strictly equals (`===`) works exactly how we want it to. The string `'Timi'` is of course equal to the string `'Timi'` and `true` is of course equal to `true`. The weird part comes into play when we try to compare objects:
+
+```
+{name: 'Timi'} === {name: 'Timi'}
+// false
+[1,2,3] === [1,2,3]
+// false
+```
+
+Our worker is telling us that objects with the exact same values are not equal to each other, which is not intuitively what I would have imagined. Let's think about why this is.
+
+Above we mentioned that our worker understands the values of `primitive` types. It has a box somewhere in its memory labeled `value_for_integer_2` or something to that affect, and when we check if `2 === 2`, it compares your value against its value and says *Yup, these two boxes are exactly the same value*.
+
+This concept is the reason why when you declare a `const` as a `primitive`, you can never change it: these values have a place in the workers brain and you can't just change it without getting inside and getting inside is far past the scope of this book. 
+
+How about an `object`? What happens when we declare `const obj = {}`? Can we change what is held inside of that like `obj.name = 'Timi'`? I bet you these objects not being able to be easily compared has something to do with this concept. Can you find out why? Look at the `object` section's *Coder Break* to see more information if you can't come up with an answer yourself. 
+
+###Equal Objects
+
+So is there any way our worker will return `true` when comparing objects? Well of course, but only if they are _**actually equal**_:
+
+```
+const user = {name: 'Timi'}
+user === user
+// true
+```
+
+And this makes sense because we are asking our worker *Does the box in my hand equal the box in my hand?* How about the below:
+
+```
+const user = {name: 'Timi'}
+const otherUserBox = user
+otherUserBox === user
+// ?
+```
 
 ##Homework
