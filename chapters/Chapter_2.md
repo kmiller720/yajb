@@ -273,7 +273,7 @@ You go to the post office and say *I can now also be reached at 4321 Washington 
 
 When we create an `object`, we are telling our postman the address to some thing. We are giving the worker a `reference` to a house. When we change what we call that, when we change the address of the `reference`, we do not change what it is pointing at ( *you do not change when you move houses* ) but rather how we reference it. 
  
-The next question is: what happens when the values that you are referencing changes? If you are the owner of both *1234 Main St* and *4231 Washington Ave* and you eat a sandwich at *1234 Main St*, did the owner of *4321 Washington Ave* also eat a sandwich? If both *1234 Main St* and *4321 Washington Ave* both point at the same house, and you change the bathroom color of *4321 Washington Ave*, did the color of the bathroom inside of *1234 Main St* also change?
+The next question is: what happens when the values that you are referencing changes? If you are the owner of both *1234 Main St* and *4231 Washington Ave* and you eat a sandwich at *1234 Main St*, did the owner of *4321 Washington Ave* also eat a sandwich? If *1234 Main St* and *4321 Washington Ave* both point at the same house, and you change the bathroom color of *4321 Washington Ave*, did the color of the bathroom inside of *1234 Main St* also change?
 
 > Coder Break:
 >
