@@ -9,11 +9,11 @@ Chapter 2: It Begins
 
 ##What's in a Name
 
-If you remember from Chapter 1, I said that our worker only understands the reserved keywords and operators. That's not completely true. As we saw, the worker also understands what the number `2` is along with what a string is ( *as long as we put '', "", or `` around it!* ). That is because JavaScript has a few different `types` of data that is understands natively. There are 7 different `types` of data that JavaScript understands, grouped together under either *primitives* and *object*. 
+If you remember from Chapter 1, I said that our worker only understands the reserved keywords and operators. That's not completely true. As we saw, the worker also understands what the number `2` is along with what a string is ( *as long as we put '', "", or `` around it!* ). That is because JavaScript has a few different `types` of data that is understands natively. There are 7 different `types` of data that JavaScript understands, grouped together under *primitives* and *object*. 
 
 ###Primitives
 
-The *primitives* types are:
+The *primitive* types are:
 
 * `Boolean`
 * `Null`
@@ -28,7 +28,9 @@ Just like we saw with `numbers` being able to have certain operations performed 
 
 > Coder Break:
 >
-Primitives are `immutable` data: they can never be mutated. This idea of `immutability` will become a cornerstone as we reach into functional programming ideas but for now we can just think of a primitive as a value that can never be different than what it is. This is not to be confused to a box always being a value. We are saying that `2` will always and forever be `2`
+Primitives are `immutable` data: they can never be mutated. This idea of `immutability` will become a cornerstone as we reach functional programming ideas but for now we can just think of a primitive as a value that can never be different than what it is. This is not to be confused to a box always being a value. We are saying that `2` will always and forever be `2`
+>
+We can also think of primitives as values that the computer understands while objects are user-created values that boil down into primitives.
 
 
 _**Boolean**_
@@ -73,7 +75,106 @@ You will notice that I am using `let` to declare `declaredButNeverAssigned`. Can
 >
 You might notice that each time we `assign` a value to a box, our worker prints out `undefined` underneath it. That is because the `assignment operation`, the `const box = value` line, is equivalent to the value `undefined` just like `2 + 2` is equivalent to `4` or `'hello ' + 'world!'` is equivalent to `'hello world!'`. 
 
+###Objects
+
+> Coder Break:
+>
+The other `type` in JavaScript, `object`, is a difficult type to explain. There is an in-depth definition that explains how everything in JavaScript is an object, even the `object literal`. This definition is a little too confusing when we are first learning so we are going to have to come up with a not-technically-valid definition for what an `object` is. At least for now.
+
+We can think of an `object` as a custom `type`. If we cannot express our data through `primitives`, we can create a data structure using an `object`. It will eventually have to be primitive values but we can structure it however we wish, if it's valid syntax. Let's see what I mean.
+
+Suppose we want to have a `user` with a `name` and an `age`. We could have the following:
+
+```
+const name = 'Timi'
+const age = 28
+```
+
+Now if we ever want to get the name of this user, we can tell our worker to get the `name` box. This works and everyone is happy for awhile. But what if there are two users in the same area of code? How can we differentiate between userA's name and userB's name? We could create two `name` boxes, `nameA` and `nameB`, and then reference them. Or we could use an object to `encapsulate` the `name` and `age` boxes. We create boxes within a box for our worker to keep track of using `key/value` pairs:
+
+
+```
+const user = {
+  name: 'Timi'.
+  age: 28
+}
+```
+
+Just like before, we are `declaring` a box, called `user` here, and `assigning` that box the value of the `object` `{name: 'Timi', user: 28}`. The curly braces ( `{` and `}` ) are just our way of telling our worker that this is a grouping of things. The information between the curly brackets in an `object` assignment are the key/value pairs that we want this object to have. We can image that the keys (`name` and `age`) are boxes attached to the bigger box `user` and their value is what is between the colon and the comma (`'Timi'` and `28`). 
+
+What we are telling our worker with the above assignment is:
+
+*Hey, here is a box called `user`. I want you to create two boxes inside of that box. Call one `name` and set this string, `'Timi'`, as its value. Call the other `age` and set this number, `28`, as its value*
+
+Because that is what we told our worker, when we tell the worker to grab us the value `user`, we are given the whole object as the return value. What if I wanted to get just the `name` from the `user` object? How do we reference a box inside of a box? Well, like most things in JavaScript, there are more than one ways to do that. 
+
+The first way is through `dot notation`. We can just reference the `key` or `property` of the `object` that we want and our worker will either return the value or `undefined` if we have not declared it yet:
+
+```
+const name = user.name
+// name is set to 'Timi'
+```
+
+If we tried to get an unset property:
+
+```
+const url = user.url
+// url is set to undefined
+```
+
+Using `dot notation`, we can also `assign` values to inner boxes:
+
+```
+user.name = 'John'
+const name = user.name
+// name is set to 'John'
+```
+
+If there is already a value there, the new value that we are `assigning` will override the previous value as we are seeing above. If there is not a property already set, our worker creates one:
+
+```
+user.url = 'https://github.com/beardedtim'
+const url = user.url
+// url is set to 'https://githube.com/beardedtim'
+```
+
+> Coder Break:
+>
+You might be noticing that we declared user as a `const` and we are reassigning/changing values without any errors. This is because `const` doesn't **actually** mean constant. It really means that we cannot change the reference for the variable. Because we are referencing a box ( `object` ), our worker doesn't actually change what it is referencing but rather changes the values inside of that reference. Basically when we declare a `primitive` with `const`, we can never change it (because they are immutable). When we declare an `object` with `const`, we can change the inner boxes with no problem but can never change the `type` that the `object` is. We can set `user.name` but cannot `user = 'Timi'` because we would be pointer our worker at a new box!
+
+The other way to access keys from an object is through `bracket notation`, where instead of doing `object.name`, we do `object['name']`. Notice how `name` in the first one, `object.name`, is an `identifier` while in the second ,`object['name']`, it is a string. This concept will come in handy later but knowing it now will help us from making a simple mistake:
+
+```
+object[name] 
+```
+
+is not the same as:
+
+```
+object['name']
+```
+
+Think on why that is. It will become very important later.
+
+Let's say that instead of `key/value` pairs, we need just a simple list of values. We are not worried about getting `object.name` but instead are wanting to get a value at an `index`, like the 3rd value in the list. Given our object idea, let's see if we can create something.
+
+```
+const list = []
+```
+
+An `array` is just a list of values. In JavaScript it doesn't matter what those values are or if they are the say `type`. And we access the contents very similarly to how we access an `object`:
+
+```
+const list = []
+list[0] = 'Timi' // ['Timi']
+```
+
+The `indexes` start at `0`.
 
 ##Is it Equal or Similar
+
+We have seen that to `assign` a value to a box (`variable`), we use the equal sign, `=`. This is our way of telling our worker to do the `assignment operation`. But what if we wanted to ask our worker if something is equivalent to something else? How can we check `equality` if the equal sign is used for assignment instead?
+
+
 
 ##Homework
