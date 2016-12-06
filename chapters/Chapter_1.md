@@ -12,7 +12,7 @@ Chapter 1: Console
 
 Programming can be thought of as us explaining to an employee what we want them to do. Take for instance handling a Google search for *capital of Canada*. We can imagine Google telling an employee of theirs *'Find out what the capital of Canada is for Jane and return to Jane a list of links that you think are important.'* This analogy seems simplistic but in all actuality this is all programming is: us giving our computer a list of instructions. The problem comes in when we realize how *completely stupid* our computer is. 
 
-Imagine that you are trying to explain to a baby who only understands the words 'yes' and 'no' how to crawl to the refrigerator. Perhaps you come up with some sets of yes's and no's in a certain order that help the baby get to the refrigerator. Now explain to the baby how to get you a Pepsi but only if there are at least 5 Pepsi's or more left because your partner really likes Pepsi and will drink 4 at least once they are home. How difficult would that be? How about telling the baby how to go to Santa Fe and ask Joe for information about his e-commerce website and display them to you in a specific order? 
+Imagine that you are trying to explain to a baby who only understands the words 'yes' and 'no' how to crawl to the refrigerator. Perhaps you come up with some sets of yes's and no's in a certain order that help the baby get to the refrigerator. Now explain to the baby how to get you a Pepsi but only if there are at least 5 Pepsi's or more left because your partner really likes Pepsi and will drink at least 4 once they are home. How difficult would that be? How about telling the baby how to go to Santa Fe and ask Joe for information about his e-commerce website and display them to you in a specific order? 
 
 At the base level our computer, our worker, is that baby. It only understands either yes (`1`) or no (`0`) and we have to find ways to explain abstract ideas like *go to the fridge and grab me a Pepsi* or *ask Joe for information on products* in sequential 1's and 0's. Luckily for us, people far smarter than me have came up with ways to explain to the worker base instructions like `pop`, `push`, and `compare`. With these instructions we can start writing programs that *compile* into the yes's and no's that our worker understands. We start to `abstract` a set of 1s and 0s into the word `pop` so when we tell our worker what to do we can explain it nearly in our native language and have another worker (a `compiler`) make it into instructions that our worker understands. 
 
@@ -27,6 +27,12 @@ Our worker natively only understands certain words and symbols. [MDN](https://de
 ##Boxes and Instructions
 
 The way that I like to think about how we talk to our worker is through boxes of information and instructions on what to do with that information. For instance, let's suppose that I wanted to tell my worker to follow a map to a location. We can think of a box holding the `map`, some sort of information that we as a human call a map but to our worker it is just a piece of paper in a box that he knows the location of inside of his warehouse. We then have a list of instructions that tell the worker how to follow the map and tell him *"follow these instructions and when I use the word* `map` *I am pointing at the box holding the information that you need."* But how do we tell the worker what the map is or what the instructions are? Let's start coding.
+
+> Coder Break:
+>
+A worker with boxes and instructions is the basic metaphor that I use to understand and explain the inner workings of our computer. This metaphor works for me and is an easy enough way to explain some confusing concepts about logic and computer science. However, if this metaphor doesn't work for you, start making your own!
+>
+The most important thing we can do as developers is to have a base model for how our computer works, one that we update each time we learn some new information. As you read through this book, take each thing you learn and see how it affects the model you have built in your head. Does this new information fit nicely into the way you thought the computer worked? If not, spend time figuring out why, finding the edges of your model, the leaks in your metaphor, before you move onto a new concept. It will pay back in droves later.
 
 ##Introduction to the Console
 
@@ -67,7 +73,7 @@ What other math operators does our worker know?
 // 1
 ```
 
-How about the order of operations? Think of how you imagine the worker would do this and why you think they would do it like that:
+How about the order of operations? Imagine what the worker would do with this and why you think they would do it like that:
 
 ```
 > 2 + 5 * 5
@@ -97,7 +103,7 @@ It seems that when we type in `hello world!`, our worker thinks that is it an `i
 // "hello world!"
 ```
 
-There are two other ways to tell our worker that the text is not an `identifier` but a `value`:
+There are two other ways to tell our worker that the text is not an `identifier` but instead a `value`:
 
 By surrounding it with double quotes ( `"..."` )
 ```

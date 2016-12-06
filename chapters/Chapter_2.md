@@ -52,7 +52,7 @@ Notice how there are no quotation marks around `true` or `false`. That is becaus
 
 _**Null & Undefined**_
 
-The values `null` and `undefined` are very similar in that they represent a void value (a non-value). However, the distinction is that `null` means that the box has been set to `null` while `undefined` could mean that the box was never defined, nothing was returned, or that you set it to be that value. We assign it just like everything else:
+The values `null` and `undefined` are very similar to each other in that they represent a non-value. However, the distinction is that `null` means that the box has been set to `null` while `undefined` could mean that the box was never defined, nothing was returned, or that you set it to be that value. We assign it just like everything else:
 
 ```
 > const definedButNull = null
@@ -228,7 +228,7 @@ user === user
 // true
 ```
 
-And this makes sense because we are asking our worker *Does the box in my hand equal the box in my hand?* How about the below:
+And this makes sense because we are asking our worker *Does the box in my hand equal the box in my hand?* Of course the same box is equal to the same box. How about the below:
 
 ```
 const user = {name: 'Timi'}
@@ -236,5 +236,7 @@ const otherUserBox = user
 otherUserBox === user
 // ?
 ```
+
+
 
 ##Homework
