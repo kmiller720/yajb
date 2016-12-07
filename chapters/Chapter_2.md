@@ -22,13 +22,13 @@ The *primitive* types are:
 * `String`
 * `Symbol`
 
-We won't get into Symbol so we can just pretend that it's not a thing right now. When we say `primitive`, we do not mean to say that they are less important than `objects`. What we mean when we say `primitive` is that these values are an exact unit. We can never change what our worker thinks `2` is. It will always be `2`. While we can change what value we place inside of our boxes, we cannot tell our working *Treat the number 2 as if it were the number 4* 
+We won't get into Symbol so we can just pretend that it's not a thing right now. When we say `primitive`, we do not mean to say that they are less important than `objects`. What we mean when we say `primitive` is that these values are an exact unit. We can never change what our worker thinks `2` is. It will always be `2`. While we can change what value we place inside of our boxes, we cannot tell our worker *Treat the number 2 as if it were the number 4* 
 
 Just like we saw with `numbers` being able to have certain operations performed on them ( `2 + 2` ) and `strings` have the same `operator` being used ( `'hello' + ' ' + 'world!'` ), it does not mean that they perform the same action or that both types have the same operations available to them ( `'hello world' - 'world'` *is not valid* ). Each `type` has certain operators that they work with and certain places where we would want to use them.
 
 > Coder Break:
 >
-Primitives are `immutable` data: they can never be mutated. This idea of `immutability` will become a cornerstone as we reach functional programming ideas but for now we can just think of a primitive as a value that can never be different than what it is. This is not to be confused to a box always being a value. We are saying that `2` will always and forever be `2`
+Primitives are `immutable` data: they can never be mutated. This idea of `immutability` will become a cornerstone as we reach functional programming ideas but for now we can just think of a primitive as a value that can never be different than what it is. This is not to be confused to a box always being a value. We are saying that `2` will always and forever be `2`.
 >
 We can also think of primitives as values that the computer understands while objects are user-created values that boil down into primitives.
 >
@@ -102,7 +102,7 @@ const user = {
 }
 ```
 
-Just like before, we are `declaring` a box, called `user` here, and `assigning` that box the value of the `object` `{name: 'Timi', user: 28}`. The curly braces ( `{` and `}` ) are just our way of telling our worker that this is a grouping of things. The information between the curly brackets in an `object` assignment are the key/value pairs that we want this object to have. We can image that the keys (`name` and `age`) are boxes attached to the bigger box `user` and their value is what is between the colon and the comma (`'Timi'` and `28`). 
+Just like before, we are `declaring` a box, called `user` here, and `assigning` that box the value of the `object` `{name: 'Timi', age: 28}`. The curly braces ( `{` and `}` ) are just our way of telling our worker that this is a grouping of things. The information between the curly brackets in an `object` assignment are the key/value pairs that we want this object to have. We can imagine that the keys (`name` and `age`) are boxes attached to the bigger box `user` and their value is what is between the colon and the comma (`'Timi'` and `28`). 
 
 What we are telling our worker with the above assignment is:
 
