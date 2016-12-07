@@ -10,11 +10,11 @@ Chapter 1: Console
 
 ##Meet our Worker
 
-Programming can be thought of as us explaining to an employee what we want them to do. Take for instance handling a Google search for *capital of Canada*. We can imagine Google telling an employee of theirs *'Find out what the capital of Canada is for Jane and return to Jane a list of links that you think are important.'* This analogy seems simplistic but in all actuality this is all programming is: us giving our computer a list of instructions. The problem comes in when we realize how *completely stupid* our computer is. 
+Programming can be thought of as us explaining to an employee what we want them to do. Take, for instance, handling a Google search for *capital of Canada*. We can imagine Google telling an employee of theirs *'Find out what the capital of Canada is for Jane and return to Jane a list of links that you think are important.'* This analogy seems simplistic, but in all actuality this is all programming is: us giving our computer a list of instructions. The problem comes when we realize how *completely stupid* our computer is. 
 
-Imagine that you are trying to explain to a baby who only understands the words 'yes' and 'no' how to crawl to the refrigerator. Perhaps you come up with some sets of yes's and no's in a certain order that help the baby get to the refrigerator. Now explain to the baby how to get you a Pepsi but only if there are at least 5 Pepsi's or more left because your partner really likes Pepsi and will drink at least 4 once they are home. How difficult would that be? How about telling the baby how to go to Santa Fe and ask Joe for information about his e-commerce website and display them to you in a specific order? 
+Imagine that you are trying to explain to a baby who only understands the words 'yes' and 'no' how to crawl to the refrigerator. Perhaps you come up with some sets of yes's and no's in a certain order that help the baby get to the refrigerator. Now explain to the baby how to get you a Pepsi, but only if there are at least 5 Pepsi's left, because your partner really likes Pepsi and will drink at least 4 once they are home. How difficult would that be? How about telling the baby how to go to Santa Fe and ask Joe for information about his e-commerce website and display them to you in a specific order? 
 
-At the base level our computer, our worker, is that baby. It only understands either yes (`1`) or no (`0`) and we have to find ways to explain abstract ideas like *go to the fridge and grab me a Pepsi* or *ask Joe for information on products* in sequential 1's and 0's. Luckily for us, people far smarter than me have came up with ways to explain to the worker base instructions like `pop`, `push`, and `compare`. With these instructions we can start writing programs that *compile* into the yes's and no's that our worker understands. We start to `abstract` a set of 1s and 0s into the word `pop` so when we tell our worker what to do we can explain it nearly in our native language and have another worker (a `compiler`) make it into instructions that our worker understands. 
+At the base level our computer—our worker—is that baby. It only understands either yes (`1`) or no (`0`) and we have to find ways to explain abstract ideas like *go to the fridge and grab me a Pepsi* or *ask Joe for information on products* in sequential 1's and 0's. Luckily for us, people far smarter than me have come up with ways to explain to the worker base instructions like `pop`, `push`, and `compare`. With these instructions we can start writing programs that *compile* into the yes's and no's that our worker understands. We start to `abstract` a set of 1s and 0s into the word `pop` so when we tell our worker what to do we can explain it nearly in our native language and have another worker (a `compiler`) make it into instructions that our worker understands. 
 
 Each level of `abstraction` can be thought of as a worker. Each time we get away from `binary`, we are creating an abstraction, creating a new worker that understands new commands that can communicate with the worker below it. Our `assembly` worker can talk to our `hexdec` worker that can talk to our `binary` worker. Our `c` worker can talk to our `assembly` worker. Our `javascript` worker can talk to our `c` worker. Our `react.js` worker can talk to our `javascript` worker. 
 
@@ -22,11 +22,11 @@ Another way to look at it is that anything our `react.js` worker can do, our `ja
 
 Since this is a JavaScript book, we can forget about our `c` worker and below. We are only going to focus on how we communicate with our `javascript` worker and how we can give it the correct instructions in a way that it will not only understand but more importantly be able to complete the job in a way that we deem correct. So how do we talk to our worker? What's the language that it understands?
 
-Our worker natively only understands certain words and symbols. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords) has a nice list of all of the keywords that our worker understands. Everything else that we wish to tell our worker is going to be up to us finding a way to mix and match boxes and instructions built with those keywords in a way that our worker can follow to complete whatever mission we give it. We can think of these keywords as the base `abstraction` of our worker so that instead of our worker only understanding `1` or `0`, it can understand what you mean when you say `do` or `this`. Along with these keywords, our worker understands things called `operators`, like `=`, `+`, and `*`. Once again [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators) has a great list of these. The keywords and operators describe the `language` that our worker understands. But the real question is how do we use these `operators` and `keywords` to explain to our worker what we want it to do?
+Our worker natively only understands certain words and symbols. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords) has a nice list of all of the keywords that our worker understands. Everything else that we wish to tell our worker is going to be up to us to find a way to mix and match boxes and instructions built with those keywords in a way that our worker can follow to complete whatever mission we give it. We can think of these keywords as the base `abstraction` of our worker so that instead of our worker only understanding `1` or `0`, it can understand what you mean when you say `do` or `this`. Along with these keywords, our worker understands things called `operators`, like `=`, `+`, and `*`. Once again [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators) has a great list of these. The keywords and operators describe the `language` that our worker understands. But the real question is how do we use these `operators` and `keywords` to explain to our worker what we want it to do?
 
 ##Boxes and Instructions
 
-The way that I like to think about how we talk to our worker is through boxes of information and instructions on what to do with that information. For instance, let's suppose that I wanted to tell my worker to follow a map to a location. We can think of a box holding the `map`, some sort of information that we as a human call a map but to our worker it is just a piece of paper in a box that he knows the location of inside of his warehouse. We then have a list of instructions that tell the worker how to follow the map and tell him *"follow these instructions and when I use the word* `map` *I am pointing at the box holding the information that you need."* But how do we tell the worker what the map is or what the instructions are? Let's start coding.
+The way that I like to think about how we talk to our worker is through boxes of information and instructions on what to do with that information. For instance, let's suppose that I wanted to tell my worker to follow a map to a location. We can think of a box holding the `map`: some sort of information that we as humans call a map, but to our worker it is just a piece of paper in a box that he knows the location of inside of his warehouse. We then have a list of instructions that tell the worker how to follow the map and tell him *"follow these instructions and when I use the word* `map` *I am pointing at the box holding the information that you need."* But how do we tell the worker what the map is or what the instructions are? Let's start coding.
 
 > Coder Break:
 >
@@ -79,12 +79,12 @@ How about the order of operations? Imagine what the worker would do with this an
 > 2 + 5 * 5
 ```
 
-What did our worker get? Was it `2 + ( 5 * 5)` or was it `(2 + 5) * 5`? What happens when we actually put those expressions inside of the console? What kind of rules do you think the worker is following to come up with the answer? 
+What did our worker get? Was it `2 + (5 * 5)` or was it `(2 + 5) * 5`? What happens when we actually put those expressions inside of the console? What kind of rules do you think the worker is following to come up with the answer? 
 
 
 >Coder Break:
 >
-Throughout this book, I will ask questions and ask you to try things without giving you what the outcome should be or the answer to the question. This is to foster the questioning of why and how things work. While you can just copy/paste from this book, you will gain far more if you take a moment or two after each concept and break it. Finding the edges of the language helps far more than learning the syntax or an API. 
+Throughout this book, I will ask questions and ask you to try things without giving you what the outcome should be or giving the answer to the question. This is to foster the questioning of why and how things work. While you can just copy/paste from this book, you will gain far more if you take a moment or two after each concept and break it. Finding the edges of the language helps far more than learning the syntax or an API. 
 
 
 We see that our worker understands what a `number` is and has some basic operations that it can do with them ( `+`, `/`, etc). How about text? Let's see. With numbers we could just type in what we wanted and it understood. Can we just type in some text and our worker understand?
@@ -168,7 +168,7 @@ Do not worry about the `undefined` statement. That will become important later b
 
 >Coder Break:
 >
-There are two other ways to `declare` a variable in JS: `var` and `let`. There are very important differences between what `const`, `let`, and `var` actually do that we will get into later. For now, know that `const` is *kinda* short of `constant` while `let` and `var` are *kinda* the same thing. 
+There are two other ways to `declare` a variable in JS: `var` and `let`. There are very important differences between what `const`, `let`, and `var` actually do that we will get into later. For now, know that `const` is *kinda* short for `constant` while `let` and `var` are *kinda* the same thing. 
 >
 Another important thing to understand at this point is that when we `assign` a `value` to a box, the two become equivalent. If we say `const name = 'Timi'`, we are telling our worker *Whenever you see the identifier name, I want you to replace it with the value 'Timi'*. 
 
@@ -205,7 +205,7 @@ Our worker follows the same thing as it did with `2 + 2`, except this time inste
 
 * When we *program*, all we are doing is trying to find a way to explain a set of instructions to our worker.
 * Our worker is very, *very* stupid and only understands a few things. It is our job to find a way to explain our instructions using only those few things. 
-* Variables are our way of telling our worker *There is a box named x with the value of y*. We build our own `abstraction` using boxes on top of the keywords and expressions that our worker understands in order to explain our instructions in a way that we the developer can understand. 
+* Variables are our way of telling our worker *There is a box named x with the value of y*. We build our own `abstraction` using boxes on top of the keywords and expressions that our worker understands in order to explain our instructions in a way that we, the developer, can understand. 
 
 ##Homework:
 
@@ -221,7 +221,7 @@ Our worker follows the same thing as it did with `2 + 2`, except this time inste
   - What does our worker tell us?
   - What happens if you use `let` instead of `const`? How about `var`?
   
-* Why do you think when we do addition ( `2 + 2`), we get the value underneath ( `4` ) but when we `assign` a value ( `const name = 'Timi'` ), we get `undefined` instead of `"Timi"`? What is our worker telling us when he says those things?
+* Why do you think when we do addition ( `2 + 2` ), we get the value underneath ( `4` ) but when we `assign` a value ( `const name = 'Timi'` ), we get `undefined` instead of `"Timi"`? What is our worker telling us when he says those things?
 
 
 ##Before Moving On:
